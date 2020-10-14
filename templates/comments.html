@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Andrei</title>
+  <link href="static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/css/animate.min.css" rel="stylesheet"> 
+  <link href="static/css/font-awesome.min.css" rel="stylesheet">
+  <link href="static/css/lightbox.css" rel="stylesheet">
+  <link href="static/css/main.css" rel="stylesheet">
+  <link id="css-preset" href="static/css/presets/preset1.css" rel="stylesheet">
+  <link href="static/css/responsive.css" rel="stylesheet">
+
+  <!--[if lt IE 9]>
+    <script src="static/js/html5shiv.js"></script>
+    <script src="static/js/respond.min.js"></script>
+  <![endif]-->
+  
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+</head><!--/head-->
+
+<body>
+
+     <div class="main-nav">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">
+            <h1 style="color:#fff">COMMENTS</h1>
+          </a>                    
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">                 
+            <li class="scroll active"><a href="/#home">Home</a></li>
+            <li class="scroll"><a href="/#experience">My experience</a></li> 
+            <li class="scroll"><a href="/#about-us">About me</a></li>                     
+            <li class="scroll"><a href="/#portfolio">Sources</a></li>
+            <li class="scroll"><a href="/#contact">Contact</a></li>       
+          </ul>
+        </div>
+      </div>
+    </div><!--/#main-nav-->
+</header><!--/#home-->
+
+<div class="container">
+    <div class="row">
+        <ol>
+           {% for comment in comments %} 
+               <div class="col-sm-6">
+                   <p><li><h2>{{comment.subject}}</h2></li>
+                   Name: {{comment.name}}<br>
+                   Mail: {{comment.email}}<br>
+                   Message:<br>    
+                   {{comment.message}}<br>
+                   <a href="{{url_for('deleteComment', comment_id = comment.id )}}">
+                   <button>Delete</button>
+                   </a></p>
+               </div>
+           {% endfor %}
+        </ol>
+    </div>
+</div>
+  <footer id="footer">
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <p>_____________________________________</p>
+            <p>&copy; 2020 Andrei Lukin</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
