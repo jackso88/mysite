@@ -72,7 +72,8 @@ def index() -> 'html':
 
 @app.route('/del/<int:comment_id>/delete/', methods=['GET', 'POST'])
 def deleteComment(comment_id):
-    commentToDelete = session.query(Comment).filter_by(id=comment_id).one()
+    commentToDelete = session.query(Comment).filter_by(id=comment_id)
+    commentToDelete = commentToDelete.one()
     if request.method != 'POST':
         session.delete(commentToDelete)
         session.commit()
