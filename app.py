@@ -19,9 +19,9 @@ session = DBSession()
 
 
 def mail(subj, email, mess, per):
-    addr_from = "herokusite@gmail.com"
-    addr_to = "andreilukin88@gmail.com"
-    password = "hb1641012"
+    addr_from = ""
+    addr_to = ""
+    password = ""
 
     msg = MIMEMultipart()
     msg['From'] = addr_from
